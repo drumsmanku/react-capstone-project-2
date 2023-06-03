@@ -68,7 +68,7 @@ function WeatherandNews() {
       setNewsData(newsData.data);
       setError(null);
       const newIndex = Math.floor(
-        Math.random() * newsData.data.results.length
+        Math.random() * newsData.data.articles.length
       );
       setCurrentNewsIndex(newIndex);
     } catch (error) {
@@ -605,7 +605,7 @@ function WeatherandNews() {
                   }}
                 >
                   <p>{newsData.results[currentNewsIndex].description}</p>
-                  <p></p>
+                  <p>{newsData.results[currentNewsIndex].content}</p>
                 </div>
               </div>
             ) : (

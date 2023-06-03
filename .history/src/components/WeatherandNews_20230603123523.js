@@ -605,7 +605,7 @@ function WeatherandNews() {
                   }}
                 >
                   <p>{newsData.results[currentNewsIndex].description}</p>
-                  <p></p>
+                  <p>{newsData.results[currentNewsIndex].content}</p>
                 </div>
               </div>
             ) : (

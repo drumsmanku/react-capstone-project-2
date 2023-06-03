@@ -68,7 +68,7 @@ function WeatherandNews() {
       setNewsData(newsData.data);
       setError(null);
       const newIndex = Math.floor(
-        Math.random() * newsData.data.results.length
+        Math.random() * newsData.length
       );
       setCurrentNewsIndex(newIndex);
     } catch (error) {

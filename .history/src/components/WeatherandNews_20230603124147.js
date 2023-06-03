@@ -65,10 +65,10 @@ function WeatherandNews() {
     const url = `https://newsdata.io/api/1/news?apikey=${API_KEY_NEWS}&language=en`;
     try {
       const newsData = await axios.get(url);
-      setNewsData(newsData.data);
+      setNewsData(newsData.results);
       setError(null);
       const newIndex = Math.floor(
-        Math.random() * newsData.data.results.length
+        Math.random() * newsData.results.length
       );
       setCurrentNewsIndex(newIndex);
     } catch (error) {

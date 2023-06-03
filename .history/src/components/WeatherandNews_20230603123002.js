@@ -68,7 +68,7 @@ function WeatherandNews() {
       setNewsData(newsData.data);
       setError(null);
       const newIndex = Math.floor(
-        Math.random() * newsData.data.results.length
+        Math.random() * newsData.data.articles.length
       );
       setCurrentNewsIndex(newIndex);
     } catch (error) {
@@ -543,10 +543,10 @@ function WeatherandNews() {
             style={{
               backgroundImage:
                 newsData &&
-                newsData.results &&
-                newsData.results.length > 0 &&
-                newsData.results[currentNewsIndex].image_url
-                  ? `url(${newsData.results[currentNewsIndex].image_url})`
+                newsData.articles &&
+                newsData.articles.length > 0 &&
+                newsData.articles[currentNewsIndex].urlToImage
+                  ? `url(${newsData.articles[currentNewsIndex].urlToImage})`
                   : "none",
               backgroundRepeat: "no-repeat",
               backgroundSize: "40rem",
@@ -555,7 +555,7 @@ function WeatherandNews() {
               justifyContent: "flex-end",
             }}
           >
-            {newsData && newsData.results && newsData.results.length > 0 ? (
+            {newsData && newsData.articles && newsData.articles.length > 0 ? (
               <div className="news-item" style={{}}>
                 <div
                   style={{
@@ -578,7 +578,7 @@ function WeatherandNews() {
                       width: "20rem",
                     }}
                   >
-                    {newsData.results[currentNewsIndex].title}
+                    {newsData.articles[currentNewsIndex].title}
                   </p>
                   <div
                     style={{
@@ -595,17 +595,16 @@ function WeatherandNews() {
                 </div>
                 <div
                   style={{
-                    maxheight: "18.5rem",
+                    height: "18.5rem",
                     width: "20rem",
                     color: "black",
                     fontFamily: "DM Sans",
                     fontSize: "1rem",
                     marginLeft: "4rem",
-                    overflow: "auto",
                   }}
                 >
-                  <p>{newsData.results[currentNewsIndex].description}</p>
-                  <p></p>
+                  <p>{newsData.articles[currentNewsIndex].description}</p>
+                  <p>{newsData.articles[currentNewsIndex].content}</p>
                 </div>
               </div>
             ) : (
