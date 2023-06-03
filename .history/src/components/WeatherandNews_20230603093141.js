@@ -256,7 +256,7 @@ function WeatherandNews() {
                         flexDirection: "column",
                         height: "inherit",
                         alignItems: "center",
-                        justifyContent:'space-around',
+                       
                         marginTop: "1rem",
                       }}
                     >

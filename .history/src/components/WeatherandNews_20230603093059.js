@@ -256,7 +256,7 @@ function WeatherandNews() {
                         flexDirection: "column",
                         height: "inherit",
                         alignItems: "center",
-                        justifyContent:'space-around',
+                        justifyContent: "space-around",
                         marginTop: "1rem",
                       }}
                     >
@@ -266,8 +266,7 @@ function WeatherandNews() {
                         style={{
                           margin: "0",
                           fontSize: "0.8rem",
-                          width: "6rem",
-                          marginLeft: '2rem'
+                          width: "7rem",
                         }}
                       >
                         {weatherData.weather[0].description}

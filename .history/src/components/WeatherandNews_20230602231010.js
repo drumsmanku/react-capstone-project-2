@@ -46,10 +46,9 @@ function WeatherandNews() {
     }
   }, []);
   const fetchWeatherData = async () => {
-    const lat='12.9767936';
-    const lon='77.590082';
-    const API_key = 'e86d0d5a2009504a23a199c78df98720';
-    const apiUrl = `https://api.openweathermap.org/data/2.5/weather?lat=${lat}&lon=${lon}&appid=${API_key}&units=metric`;
+    const location = 'Bangalore, India';
+    const apiKey = '5M5TNJNMM4CQ46DLATYJJR6UB';
+    const apiUrl = `https://weather.visualcrossing.com/VisualCrossingWebServices/rest/services/weatherdata/forecast?aggregateHours=24&combinationMethod=aggregate&contentType=json&unitGroup=metric&locationMode=single&key=${apiKey}&dataElements=default&locations=${location}`;
 
     try {
       const response = await axios.get(apiUrl);
@@ -256,7 +255,7 @@ function WeatherandNews() {
                         flexDirection: "column",
                         height: "inherit",
                         alignItems: "center",
-                        justifyContent:'space-around',
+                        justifyContent: "space-around",
                         marginTop: "1rem",
                       }}
                     >
@@ -267,10 +266,9 @@ function WeatherandNews() {
                           margin: "0",
                           fontSize: "0.8rem",
                           width: "6rem",
-                          marginLeft: '2rem'
                         }}
                       >
-                        {weatherData.weather[0].description}
+                        {weatherData.location.values[0].conditions}
                       </p>
                     </div>
                     <div
@@ -290,7 +288,7 @@ function WeatherandNews() {
                           fontWeight: "400",
                         }}
                       >
-                        {weatherData.main.temp}°C
+                        {weatherData.location.values[0].ctemp}°C
                       </p>
                       <div
                         style={{
@@ -308,7 +306,7 @@ function WeatherandNews() {
                             fontSize: "0.8rem",
                           }}
                         >
-                          {weatherData.main.pressure} mbar Pressure
+                          {weatherData.location.values[0].sealevelpressure} mbar Pressure
                         </p>
                       </div>
                     </div>
@@ -338,7 +336,7 @@ function WeatherandNews() {
                             fontSize: "0.8rem",
                           }}
                         >
-                          {weatherData.wind.speed} Km/h Wind
+                          {weatherData.location.values[0].wspd} Km/h Wind
                         </p>
                       </div>
                       <div
@@ -357,7 +355,7 @@ function WeatherandNews() {
                             fontSize: "0.8rem",
                           }}
                         >
-                          {weatherData.main.humidity}% Humidity
+                          {weatherData.location.values[0].humidity}% Humidity
                         </p>
                       </div>
                     </div>
